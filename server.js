@@ -29,20 +29,8 @@ app.use(
   })
 );
 
-// CORS configuration
-const allowedOrigin = process.env.FRONTEND_URL || `http://localhost:${PORT}`;
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, or same-origin)
-      if (!origin || origin === allowedOrigin || origin.includes('localhost') || origin.includes('127.0.0.1')) {
-        return callback(null, true);
-      }
-      callback(new Error('Blocked by CORS policy'));
-    },
-    credentials: true
-  })
-);
+// CORS configuration - Allow same-origin, Render deployments, localhost, and external clients
+app.use(cors());
 
 // Body Parsers with limits
 app.use(express.json({ limit: '1mb' }));
