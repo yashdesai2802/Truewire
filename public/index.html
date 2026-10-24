@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueWire — Live Desk & AI Verification</title>
+  <meta name="description" content="TrueWire — Professional AI-Powered News Verification Platform and Real-Time Hindi & Indian Newsroom Wire.">
+  
+  <!-- Fonts: Fraunces, IBM Plex Mono, Inter, Noto Serif Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- HEADER -->
+    <header class="desk-header">
+      <div class="header-inner">
+        <div class="header-brand">
+          <div class="header-kicker">INDEPENDENT NEWS DESK · AI VERIFICATION</div>
+          <h1 class="header-title">
+            <span class="brand-name">TrueWire</span>
+            <span class="brand-sep">/</span>
+            <span class="brand-sub">live desk</span>
+          </h1>
+        </div>
+
+        <div class="header-status">
+          <div class="clock-display">
+            <span class="live-pulse" id="livePulseDot">●</span>
+            <span class="clock-digits" id="liveClock">00:00:00</span>
+          </div>
+          <div class="stories-counter" id="storiesCounter">
+            <span id="loadedStoriesCount">0</span> stories · <span id="lastUpdatedTime">--:--:--</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- LIVE NEWS TICKER -->
+    <div class="ticker-wrapper" id="tickerWrapper">
+      <div class="ticker-track" id="tickerTrack">
+        <!-- Injected dynamically via script.js -->
+        <div class="ticker-item">
+          <span class="ticker-source">TRUEWIRE</span>
+          <span class="ticker-text">Loading live news feeds from Indian Hindi broadcasting desks...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <main class="dashboard-grid">
+
+      <!-- LEFT COLUMN: THE VERIFIER -->
+      <section class="column verifier-column">
+        <div class="column-header">
+          <h2 class="column-title">The Verifier</h2>
+          <p class="column-desc">
+            Paste a claim, a link, or drop in an image. AI cross-checks it against live web sources and gives a verdict.
+          </p>
+        </div>
+
+        <!-- VERIFIER TABS -->
+        <div class="segmented-tabs" role="tablist">
+          <button class="tab-btn active" id="tabText" role="tab" aria-selected="true" data-tab="text">TEXT</button>
+          <button class="tab-btn" id="tabLink" role="tab" aria-selected="false" data-tab="link">LINK</button>
+          <button class="tab-btn" id="tabImage" role="tab" aria-selected="false" data-tab="image">IMAGE</button>
+        </div>
+
+        <!-- FORM CONTAINER -->
+        <form class="verifier-form" id="verifierForm" onsubmit="return false;">
+
+          <!-- TAB PANEL 1: TEXT -->
+          <div class="tab-panel active" id="panelText" role="tabpanel">
+            <textarea
+              id="claimTextInput"
+              class="verifier-textarea"
+              placeholder="Paste the headline, post, or article text you want checked..."
+              rows="6"
+              spellcheck="false"
+            ></textarea>
+            <div class="char-counter"><span id="textCharCount">0</span>/5000 characters</div>
+          </div>
+
+          <!-- TAB PANEL 2: LINK -->
+          <div class="tab-panel" id="panelLink" role="tabpanel">
+            <div class="link-input-wrapper">
+              <input
+                type="url"
+                id="claimUrlInput"
+                class="verifier-input"
+                placeholder="https://example.com/news-article..."
+                autocomplete="off"
+              />
+              <p class="tab-help-text">
+                Extracts article headline, body text, and publisher metadata securely with SSRF protection.
+              </p>
+            </div>
+          </div>
+
+          <!-- TAB PANEL 3: IMAGE -->
+          <div class="tab-panel" id="panelImage" role="tabpanel">
+            <div class="dropzone" id="imageDropzone">
+              <input type="file" id="imageFileInput" accept="image/png,image/jpeg,image/webp" style="display: none;">
+              
+              <div class="dropzone-empty" id="dropzoneEmpty">
+                <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <div class="dropzone-title">Click to upload or drag & drop</div>
+                <div class="dropzone-subtitle">PNG, JPG, or WebP (up to 5MB)</div>
+              </div>
+
+              <div class="dropzone-preview" id="dropzonePreview" style="display: none;">
+                <img id="imagePreviewImg" src="" alt="Claim Preview">
+                <div class="preview-info">
+                  <div class="preview-filename" id="previewFilename">image.png</div>
+                  <div class="preview-filesize" id="previewFilesize">0 KB</div>
+                  <button type="button" class="btn-remove-image" id="btnRemoveImage">Remove</button>
+                </div>
+              </div>
+            </div>
+            <p class="tab-help-text">
+              AI vision scans visible headlines, text overlays, and corroborates against live web reporting.
+            </p>
+          </div>
+
+          <!-- ACTION BUTTON -->
+          <button type="button" class="btn-verify" id="btnVerify">
+            <span class="btn-text">VERIFY THIS</span>
+            <span class="btn-spinner" id="btnSpinner" style="display: none;"></span>
+          </button>
+
+          <!-- PROTOTYPE SUBTEXT & ACCORDION -->
+          <div class="verifier-footer-info">
+            <p class="disclaimer-note">
+              Uses live web search where useful. Treat the result as a strong second opinion, not a final ruling.
+            </p>
+            <button type="button" class="about-trigger" id="aboutTrigger">
+              <span class="arrow-icon" id="aboutArrow">▶</span> ABOUT THIS PROTOTYPE
+            </button>
+
+            <div class="about-drawer" id="aboutDrawer" style="display: none;">
+              <div class="about-content">
+                <h4>TrueWire Verification Architecture</h4>
+                <p>
+                  TrueWire continuously aggregates live feeds from Indian broadcasters (Aaj Tak, ABP News, NDTV India, Zee News, News18 Hindi, India TV, Dainik Jagran, Amar Ujala, BBC Hindi, DD News).
+                </p>
+                <p>
+                  <strong>Multi-Stage Workflow:</strong>
+                  1) Extract core factual claim. 2) Entity recognition. 3) Corroboration against 80+ live wire articles & search. 4) Synthesis of supported, misleading, or unverified verdicts.
+                </p>
+                <p>
+                  <strong>English UI Guarantee:</strong>
+                  While Hindi headlines are maintained in Devanagari for journalistic authenticity, all verification analysis, verdicts, and evidence reports are synthesized in English.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- VERIFICATION RESULTS CONTAINER -->
+        <div class="verification-result-wrapper" id="resultWrapper" style="display: none;">
+          <div class="result-header">
+            <div class="verdict-tag" id="verdictBadge">UNVERIFIED</div>
+            <div class="reliability-score" id="reliabilityScore">
+              <span class="score-label">Reliability:</span>
+              <span class="score-val" id="scoreValue">80%</span>
+            </div>
+          </div>
+
+          <div class="result-claim-box">
+            <div class="meta-label">ANALYZED CLAIM</div>
+            <div class="analyzed-claim-text" id="resultClaimText">Claim text</div>
+          </div>
+
+          <div class="result-summary-box">
+            <div class="meta-label">EXECUTIVE SUMMARY</div>
+            <p class="summary-text" id="resultSummaryText">Summary explanation...</p>
+          </div>
+
+          <div class="evidence-grid">
+            <div class="evidence-col" id="colSupporting">
+              <div class="evidence-heading positive">
+                <span class="dot-pos">✓</span> Supporting Evidence
+              </div>
+              <ul class="evidence-list" id="supportingList">
+                <li>No direct supporting evidence recorded.</li>
+              </ul>
+            </div>
+
+            <div class="evidence-col" id="colContradicting">
+              <div class="evidence-heading negative">
+                <span class="dot-neg">⚠</span> Contradicting / Cautionary Evidence
+              </div>
+              <ul class="evidence-list" id="contradictingList">
+                <li>No refuting evidence recorded.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="result-sources-box" id="resultSourcesBox">
+            <div class="meta-label">CORROBORATING NEWS SOURCES</div>
+            <div class="sources-list" id="sourcesList">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+          <div class="result-limitations-box" id="resultLimitationsBox">
+            <div class="meta-label">LIMITATIONS & METHODOLOGY</div>
+            <ul class="limitations-list" id="limitationsList">
+              <!-- Injected dynamically -->
+            </ul>
+          </div>
+
+          <div class="result-footer">
+            <div class="timestamp-meta">
+              Checked at <span id="checkedTimestamp">--</span> · <span id="engineProviderUsed">Live Wire Engine</span>
+            </div>
+            <button type="button" class="btn-reset-result" id="btnResetResult">Clear Result</button>
+          </div>
+        </div>
+
+        <!-- ERROR NOTIFICATION -->
+        <div class="verifier-error" id="verifierError" style="display: none;">
+          <div class="error-icon">✕</div>
+          <div class="error-msg" id="errorMessageText">An error occurred during verification.</div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN: LIVE WIRE -->
+      <section class="column wire-column">
+        <div class="wire-header">
+          <div class="wire-header-left">
+            <h2 class="column-title">Live Wire</h2>
+          </div>
+          <div class="wire-header-right">
+            <span class="refresh-countdown" id="refreshCountdown">refreshing in 5:00</span>
+            <button type="button" class="btn-refresh" id="btnRefreshNow" title="Force Refresh Stories">
+              <span class="refresh-text">Refresh now</span>
+              <span class="refresh-icon">↻</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SEARCH INPUT -->
+        <div class="search-box">
+          <div class="search-input-container">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="filterSearchInput"
+              class="search-input"
+              placeholder="Filter headlines..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="button" class="btn-clear-search" id="btnClearSearch" style="display: none;" title="Clear search">✕</button>
+          </div>
+          <button type="button" class="btn-api-search" id="btnApiSearch" title="Search web archives">
+            Deep Search
+          </button>
+        </div>
+
+        <!-- SOURCE FILTER CHIPS -->
+        <div class="source-chips-container" id="sourceChipsContainer" role="radiogroup">
+          <button class="source-chip active" data-source="all">All sources</button>
+          <!-- Hindi Channels (Priority) -->
+          <button class="source-chip" data-source="aaj-tak">Aaj Tak</button>
+          <button class="source-chip" data-source="abp-news">ABP News</button>
+          <button class="source-chip" data-source="ndtv-india">NDTV India</button>
+          <button class="source-chip" data-source="zee-news">Zee News</button>
+          <button class="source-chip" data-source="news18-hindi">News18 Hindi</button>
+          <button class="source-chip" data-source="india-tv">India TV</button>
+          <button class="source-chip" data-source="dainik-jagran">Dainik Jagran</button>
+          <button class="source-chip" data-source="amar-ujala">Amar Ujala</button>
+          <button class="source-chip" data-source="bbc-news-hindi">BBC News Hindi</button>
+          <button class="source-chip" data-source="dd-news">DD News</button>
+          <!-- English Channels -->
+          <button class="source-chip" data-source="the-hindu">The Hindu</button>
+          <button class="source-chip" data-source="indian-express">Indian Express</button>
+          <button class="source-chip" data-source="techcrunch">TechCrunch</button>
+          <button class="source-chip" data-source="bbc-news">BBC News</button>
+        </div>
+
+        <!-- STORIES FEED LIST -->
+        <div class="stories-feed" id="storiesFeed">
+          <div class="feed-loader" id="feedLoader">
+            <div class="spinner"></div>
+            <span>Fetching live news desks...</span>
+          </div>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-feed" id="emptyFeed" style="display: none;">
+          <div class="empty-text">No headlines match the current filter.</div>
+          <button type="button" class="btn-reset-filter" id="btnResetFilter">Reset Filters</button>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Client Script -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrueWire — Field Project Work Sheet — Dnyanesh Gawas</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      color: #000000;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      line-height: 1.25;
+      padding: 20px;
+    }
+
+    .no-print-bar {
+      max-width: 840px;
+      margin: 0 auto 16px auto;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .btn-print {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 9px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover {
+      background-color: #1d4ed8;
+    }
+
+    .sheet-page {
+      background: #ffffff;
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 30px 36px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+      border: 1px solid #cbd5e1;
+    }
+
+    .top-academic-bar {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 11pt;
+      margin-bottom: 8px;
+    }
+
+    .college-masthead {
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .college-samuha {
+      font-size: 11pt;
+      font-weight: bold;
+    }
+
+    .college-name {
+      font-size: 11pt;
+      font-weight: bold;
+    }
+
+    .college-sub {
+      font-size: 10.5pt;
+      font-weight: bold;
+    }
+
+    .college-status {
+      font-size: 10pt;
+      font-style: italic;
+    }
+
+    .sheet-title {
+      text-align: center;
+      font-size: 13.5pt;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 10px 0 14px 0;
+      text-decoration: underline;
+    }
+
+    .meta-block {
+      margin-bottom: 14px;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      gap: 4px;
+    }
+
+    .meta-label {
+      font-weight: bold;
+    }
+
+    .meta-value {
+      font-weight: normal;
+    }
+
+    .worksheet-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 9.5pt;
+    }
+
+    .worksheet-table th,
+    .worksheet-table td {
+      border: 1px solid #000000;
+      padding: 6px 7px;
+      vertical-align: top;
+    }
+
+    .worksheet-table th {
+      background-color: #f8fafc;
+      font-weight: bold;
+      text-align: center;
+      font-size: 9.5pt;
+    }
+
+    .col-date {
+      width: 11%;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .col-activity {
+      width: 15%;
+      font-weight: bold;
+    }
+
+    .col-desc {
+      width: 41%;
+      line-height: 1.25;
+    }
+
+    .col-hours {
+      width: 8%;
+      text-align: center;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .col-outcome {
+      width: 17%;
+      line-height: 1.25;
+    }
+
+    .col-sign {
+      width: 8%;
+      text-align: center;
+    }
+
+    .subtotal-row td {
+      font-weight: bold;
+      background-color: #fafafa;
+    }
+
+    .footer-signatures {
+      margin-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10pt;
+      font-weight: bold;
+      padding-top: 10px;
+    }
+
+    .sig-line {
+      display: inline-block;
+      width: 180px;
+      border-bottom: 1px solid #000000;
+      margin-left: 6px;
+    }
+
+    @media print {
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+
+      .no-print-bar {
+        display: none !important;
+      }
+
+      .sheet-page {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .worksheet-table th {
+        background-color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Print Banner (Hidden during printing) -->
+  <div class="no-print-bar">
+    <div>
+      <strong>TrueWire Field Project Work Sheet</strong> · Student: Dnyanesh Gawas (Roll No. 421)
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      🖨️ Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- Printable Worksheet Container -->
+  <div class="sheet-page">
+
+    <!-- Top Academic Bar -->
+    <div class="top-academic-bar">
+      <span>S.Y.B.Sc. Information Technology</span>
+      <span>Semester III</span>
+    </div>
+
+    <!-- College Header -->
+    <div class="college-masthead">
+      <div class="college-samuha">Chikitsak Samuha's</div>
+      <div class="college-name">Sir Sitaram and Lady Shantabai Patkar College of Arts &amp; Science &amp;</div>
+      <div class="college-sub">V.P.Varde College of Commerce &amp; Economics</div>
+      <div class="college-status">An Autonomous College, University of Mumbai</div>
+    </div>
+
+    <!-- Document Title -->
+    <div class="sheet-title">FIELD PROJECT WORK SHEET</div>
+
+    <!-- Meta Details Grid -->
+    <div class="meta-block">
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Student Name:</span>
+          <span class="meta-value">Dnyanesh Gawas</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Class:</span>
+          <span class="meta-value">SYIT</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Division:</span>
+          <span class="meta-value">A</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Roll No.:</span>
+          <span class="meta-value">421</span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-item" style="width: 100%;">
+          <span class="meta-label">Project:</span>
+          <span class="meta-value">TrueWire – AI-Powered Real-Time News Verification System</span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Group Members:</span>
+          <span class="meta-value">Yash Desai, Dnyanesh Gawas</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Guide:</span>
+          <span class="meta-value">_________________________</span>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Department:</span>
+          <span class="meta-value">Information Technology</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Worksheet Table -->
+    <table class="worksheet-table">
+      <thead>
+        <tr>
+          <th class="col-date">Date</th>
+          <th class="col-activity">Activity Type</th>
+          <th class="col-desc">Module/Task Description</th>
+          <th class="col-hours">Total Hours</th>
+          <th class="col-outcome">Remarks / Outcome</th>
+          <th class="col-sign">Sign of Teacher In-charge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Row 1 -->
+        <tr>
+          <td class="col-date">02/09/2026</td>
+          <td class="col-activity">Project Discussion</td>
+          <td class="col-desc">Finalized the TrueWire project idea for checking whether news, links, images and online content are genuine or misleading. Formulated system requirements for a live newsroom verification desk.</td>
+          <td class="col-hours">2 hr</td>
+          <td class="col-outcome">Project problem, objectives, and scope defined.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 2 -->
+        <tr>
+          <td class="col-date">06/09/2026</td>
+          <td class="col-activity">Research</td>
+          <td class="col-desc">Researched live Indian news RSS feeds (Aaj Tak, ABP News, NDTV India, Zee News, Jagran) and multimodal AI models (Gemini, OpenAI, Claude) for corroboration against live web wire sources.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">Suitable Hindi news sources and fact-checking methodology identified.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 3 -->
+        <tr>
+          <td class="col-date">11/09/2026</td>
+          <td class="col-activity">Backend Architecture</td>
+          <td class="col-desc">Set up Node.js Express server architecture, modular directory structure (routes, services, middleware, utils), environment variables (.env), and rate limiters to protect AI API quotas.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">Express backend with Helmet security and CORS initialized.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 4 -->
+        <tr>
+          <td class="col-date">16/09/2026</td>
+          <td class="col-activity">News Aggregator Coding</td>
+          <td class="col-desc">Developed newsService.js for multi-feed RSS parsing across 10+ Hindi channels. Added in-memory caching (5-min TTL), headline deduplication, and preserved original Devanagari Hindi text.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">300+ live news stories fetched and cached successfully.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 5 -->
+        <tr>
+          <td class="col-date">21/09/2026</td>
+          <td class="col-activity">Security &amp; SSRF Guards</td>
+          <td class="col-desc">Engineered articleService.js and validation.js with comprehensive SSRF protection: DNS pre-lookup, private IP blocking (10.0.0.0/8, 127.0.0.1, 192.168.0.0/16, ::1), redirect caps, and 2MB payload limits.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">Safe article fetching with Cheerio HTML extraction secured.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 6 -->
+        <tr>
+          <td class="col-date">26/09/2026</td>
+          <td class="col-activity">Image Upload Security</td>
+          <td class="col-desc">Implemented Multer memory storage and binary magic bytes validation in uploadValidation.js for JPEG, PNG, and WebP signatures. Prevented file extension spoofing and executable uploads.</td>
+          <td class="col-hours">2 hr</td>
+          <td class="col-outcome">Strict image upload validation up to 5MB implemented.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 7 -->
+        <tr>
+          <td class="col-date">01/10/2026</td>
+          <td class="col-activity">AI Verification Engine</td>
+          <td class="col-desc">Built 7-stage fact-checking pipeline in verificationService.js: claim extraction, entity recognition, live news cross-referencing, structured JSON verdicts (SUPPORTED to UNVERIFIED) with English reports.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">Tri-modal AI verification engine with zero-cost fallback mode complete.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 8 -->
+        <tr>
+          <td class="col-date">05/10/2026</td>
+          <td class="col-activity">Frontend Engineering</td>
+          <td class="col-desc">Engineered TrueWire frontend matching dark newsroom UI (#0F1521, #E8A33D). Built Fraunces serif typography, live digital clock, smooth CSS marquee ticker, and 2-column Live Desk layout.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">Responsive newsroom command center frontend implemented.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 9 -->
+        <tr>
+          <td class="col-date">08/10/2026</td>
+          <td class="col-activity">Verifier &amp; Search UI</td>
+          <td class="col-desc">Implemented segmented tabs (TEXT, LINK, IMAGE) with client-side image drag-drop preview, one-click claim prefill from Live Wire, live search supporting Hindi Devanagari, and channel filter chips.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">Interactive The Verifier form and Live Wire search integrated.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Row 10 -->
+        <tr>
+          <td class="col-date">10/10/2026</td>
+          <td class="col-activity">Testing &amp; Deployment</td>
+          <td class="col-desc">Created automated test suite (run-tests.js) testing SSRF guards, viral Hindi claims, image signatures, rate limits, and health diagnostics. Verified 32/32 tests passing and production readiness.</td>
+          <td class="col-hours">3 hr</td>
+          <td class="col-outcome">32/32 test cases passed; deployment ready on localhost:3000.</td>
+          <td class="col-sign"></td>
+        </tr>
+
+        <!-- Subtotal Row -->
+        <tr class="subtotal-row">
+          <td colspan="3" style="text-align: right; padding-right: 14px;">Total Hours Completed:</td>
+          <td class="col-hours">27 hr</td>
+          <td colspan="2" style="font-weight: normal; font-size: 8.5pt;">All core frontend, backend, security &amp; AI modules completed.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Footer Signatures -->
+    <div class="footer-signatures">
+      <div>
+        <span>Student's Signature:</span>
+        <span class="sig-line"></span>
+      </div>
+      <div>
+        <span>Teacher In-charge Signature:</span>
+        <span class="sig-line"></span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

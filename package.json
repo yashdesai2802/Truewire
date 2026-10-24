@@ -1,0 +1,30 @@
+{
+  "name": "truewire",
+  "version": "1.0.0",
+  "description": "TrueWire — Live Desk & AI-Powered News Verification Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test/run-tests.js"
+  },
+  "keywords": [
+    "news",
+    "fact-checking",
+    "ai-verification",
+    "hindi-news",
+    "live-desk"
+  ],
+  "author": "TrueWire Team",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "multer": "^1.4.5-lts.1",
+    "rss-parser": "^3.13.0"
+  }
+}

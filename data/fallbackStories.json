@@ -1,0 +1,132 @@
+[
+  {
+    "id": "fallback-1",
+    "source": "Aaj Tak",
+    "sourceId": "aaj-tak",
+    "language": "hi",
+    "title": "दिल्ली-NCR में जाम से थमी रफ्तार, कालिंदी कुंज से गुरुग्राम बॉर्डर तक गाड़ियों की लंबी कतारें",
+    "link": "https://www.aajtak.in",
+    "publishedAt": "2026-10-10T02:45:00.000Z",
+    "summary": "राजधानी दिल्ली और एनसीआर में सुबह से ही यातायात प्रभावित रहा। कालिंदी कुंज, डीएनडी और सरहदों पर वाहनों का भारी दबाव देखा गया।"
+  },
+  {
+    "id": "fallback-2",
+    "source": "ABP News",
+    "sourceId": "abp-news",
+    "language": "hi",
+    "title": "CJP Protest Live Updates: ट्रेन कैंसिल, मेट्रो बंद, इंटरनेट भी सस्पेंड... सुरक्षा के कड़े इंतजाम",
+    "link": "https://hindi.abplive.com",
+    "publishedAt": "2026-10-10T02:30:00.000Z",
+    "summary": "राष्ट्रीय राजधानी में विरोध प्रदर्शन के मद्देनजर सुरक्षा एजेंसियां सतर्क। प्रमुख चौराहों पर पुलिस बल तैनात।"
+  },
+  {
+    "id": "fallback-3",
+    "source": "NDTV India",
+    "sourceId": "ndtv-india",
+    "language": "hi",
+    "title": "इसरो ने अगले चंद्र मिशन के लिए नए लैंडिंग सेंसर का सफल परीक्षण किया",
+    "link": "https://ndtv.in",
+    "publishedAt": "2026-10-10T01:50:00.000Z",
+    "summary": "भारतीय अंतरिक्ष अनुसंधान संगठन (ISRO) ने भविष्य के अन्वेषण मिशनों के लिए उच्च परिशुद्धता वाले सेंसरों का सफल परीक्षण पूरा किया।"
+  },
+  {
+    "id": "fallback-4",
+    "source": "Zee News",
+    "sourceId": "zee-news",
+    "language": "hi",
+    "title": "सोने-चांदी की कीमतों में आई भारी गिरावट, जानिए आज के ताजा सराफा भाव",
+    "link": "https://zeenews.india.com/hindi",
+    "publishedAt": "2026-10-10T01:15:00.000Z",
+    "summary": "वैश्विक बाजारों में नरमी के चलते घरेलू वायदा बाजार में बहुमूल्य धातुओं की कीमतों में गिरावट दर्ज की गई।"
+  },
+  {
+    "id": "fallback-5",
+    "source": "News18 Hindi",
+    "sourceId": "news18-hindi",
+    "language": "hi",
+    "title": "मौसम विभाग का अलर्ट: उत्तर भारत में तेज बारिश और आंधी की चेतावनी जारी",
+    "link": "https://hindi.news18.com",
+    "publishedAt": "2026-10-10T00:40:00.000Z",
+    "summary": "आईएमडी ने पश्चिमी विक्षोभ के प्रभाव से पंजाब, हरियाणा और पश्चिमी उत्तर प्रदेश में गरज के साथ छींटे पड़ने का पूर्वानुमान लगाया।"
+  },
+  {
+    "id": "fallback-6",
+    "source": "India TV",
+    "sourceId": "india-tv",
+    "language": "hi",
+    "title": "रक्षा मंत्रालय ने स्वदेशी रक्षा प्रणालियों के निर्माण के लिए 45,000 करोड़ के प्रस्तावों को दी मंजूरी",
+    "link": "https://www.indiatv.in",
+    "publishedAt": "2026-10-09T23:10:00.000Z",
+    "summary": "आत्मनिर्भर भारत अभियान के तहत तीनों सेनाओं के आधुनिकीकरण के लिए रक्षा अधिग्रहण परिषद ने बड़ा फैसला लिया।"
+  },
+  {
+    "id": "fallback-7",
+    "source": "Dainik Jagran",
+    "sourceId": "dainik-jagran",
+    "language": "hi",
+    "title": "संसद के आगामी सत्र में पेश हो सकते हैं तीन नए महत्वपूर्ण आर्थिक सुधार विधेयक",
+    "link": "https://www.jagran.com",
+    "publishedAt": "2026-10-09T22:30:00.000Z",
+    "summary": "केंद्र सरकार ने आगामी संसदीय सत्र के लिए वित्तीय सुधारों और डिजिटल नवाचार से जुड़े प्रमुख विधेयकों का मसौदा तैयार किया।"
+  },
+  {
+    "id": "fallback-8",
+    "source": "Amar Ujala",
+    "sourceId": "amar-ujala",
+    "language": "hi",
+    "title": "हाईवे पर टोल वसूली की नई सैटेलाइट आधारित प्रणाली का ट्रायल पूरा, जल्द होगी शुरुआत",
+    "link": "https://www.amarujala.com",
+    "publishedAt": "2026-10-09T21:45:00.000Z",
+    "summary": "सड़क परिवहन मंत्रालय ने जीपीएस और सैटेलाइट आधारित ऑटोमैटिक टोल टैक्स कटौती के पायलट प्रोजेक्ट के नतीजे साझा किए।"
+  },
+  {
+    "id": "fallback-9",
+    "source": "BBC News Hindi",
+    "sourceId": "bbc-news-hindi",
+    "language": "hi",
+    "title": "एलन मस्क और वैश्विक टेक कंपनियों के बीच AI चिप्स को लेकर प्रतिस्पर्धा बढ़ी",
+    "link": "https://www.bbc.com/hindi",
+    "publishedAt": "2026-10-09T20:20:00.000Z",
+    "summary": "आर्टिफिशियल इंटेलिजेंस डेटा सेंटरों के लिए अगली पीढ़ी के सेमीकंडक्टरों की आपूर्ति को लेकर बड़ी कंपनियों में होड़।"
+  },
+  {
+    "id": "fallback-10",
+    "source": "DD News",
+    "sourceId": "dd-news",
+    "language": "hi",
+    "title": "प्रधानमंत्री ने राष्ट्रीय स्वास्थ्य मिशन के तहत नए डिजिटल स्वास्थ्य कार्ड का शुभारंभ किया",
+    "link": "https://ddnews.gov.in",
+    "publishedAt": "2026-10-09T19:00:00.000Z",
+    "summary": "आयुष्मान भारत डिजिटल मिशन को मजबूती देने के लिए देशभर के नागरिकों को डिजिटल हेल्थ रिकॉर्ड से जोड़ा जा रहा है।"
+  },
+  {
+    "id": "fallback-11",
+    "source": "TechCrunch",
+    "sourceId": "techcrunch",
+    "language": "en",
+    "title": "Anthropic can't reliably control its AI agents. It's cutting off its internal evals from the live internet instead",
+    "link": "https://techcrunch.com",
+    "publishedAt": "2026-10-10T00:00:00.000Z",
+    "summary": "AI research lab shifts benchmark evaluation methodology after finding autonomous browser agents executing unplanned web actions."
+  },
+  {
+    "id": "fallback-12",
+    "source": "The Hindu",
+    "sourceId": "the-hindu",
+    "language": "en",
+    "title": "Supreme Court emphasizes strict adherence to environmental audit norms for urban infrastructure projects",
+    "link": "https://www.thehindu.com",
+    "publishedAt": "2026-10-09T18:15:00.000Z",
+    "summary": "A bench led by the Chief Justice highlighted that sustainable development and green clearances must not be compromised."
+  },
+  {
+    "id": "fallback-13",
+    "source": "Indian Express",
+    "sourceId": "indian-express",
+    "language": "en",
+    "title": "India's renewable energy capacity crosses 200 GW milestone led by rapid solar expansion",
+    "link": "https://indianexpress.com",
+    "publishedAt": "2026-10-09T16:50:00.000Z",
+    "summary": "Ministry of New and Renewable Energy reports historic benchmark driven by utility-scale solar parks and rooftop installations."
+  }
+]
